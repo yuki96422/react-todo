@@ -17,5 +17,6 @@ module.exports = {
     "no-undef": "off",
     "react/function-component-definition": "off",
     "arrow-body-style": "off",
+    "react/prop-types": "off",
   },
 };
