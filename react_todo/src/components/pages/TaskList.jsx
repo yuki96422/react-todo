@@ -1,11 +1,13 @@
 import {Heading, VStack, Box} from '@chakra-ui/react';
 
 import TaskCard from '../taskcard/Taskcard';
+import AddTaskModal from "../modal/AddTaskModal";
 
 
 const TaskList = () => {
   return (
-    <Box p={10}>
+    <>
+        <Box p={10}>
       <Heading as="h1" color="gray.600" fontSize="32px">
         Task List
       </Heading>
@@ -14,6 +16,8 @@ const TaskList = () => {
         <TaskCard />
       </VStack>
     </Box>
+    <AddTaskModal />
+    </>
   );
 };
 
