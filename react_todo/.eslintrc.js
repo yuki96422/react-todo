@@ -15,6 +15,7 @@ module.exports = {
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "no-undef": "off",
+    "no-unused-vars": "off",
     "react/function-component-definition": "off",
     "arrow-body-style": "off",
     "react/prop-types": "off",

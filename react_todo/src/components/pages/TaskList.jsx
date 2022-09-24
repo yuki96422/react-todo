@@ -1,13 +1,13 @@
 import {Heading, VStack, Box} from '@chakra-ui/react';
-import {Link} from "react-router-dom"
-
+import {Link} from "react-router-dom";
+import {memo} from "react";
 
 import TaskCard from '../taskcard/Taskcard';
 import MainButton from "../button/MainButton";
 import AddTaskModal from "../modal/AddTaskModal";
 
 
-const TaskList = () => {
+const TaskList = memo(() => {
 
   return (
     <>
@@ -26,6 +26,7 @@ const TaskList = () => {
     <AddTaskModal />
     </>
   );
-};
+}
+)
 
 export default TaskList;

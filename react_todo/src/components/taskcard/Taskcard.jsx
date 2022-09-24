@@ -1,7 +1,8 @@
+import { memo} from 'react';
 import { Box, Flex } from '@chakra-ui/react';
 import { CheckIcon, CloseIcon } from '@chakra-ui/icons';
 
-const TaskCard = () => {
+const TaskCard = memo(() => {
   return (
     <Flex alignItems="center">
       <Box bg="white" w="800px" h="50px" p="10px" borderRadius="10px" lineHeight="30px" shadow="md">
@@ -15,11 +16,11 @@ const TaskCard = () => {
           _hover={{ color: 'teal.300' }}
           transition="0.2s"
         />
-        タスクですタスクタスクですタスクです
+       タスクです
       </Box>
-      <CloseIcon  ml="20px"  cursor="pointer"/>
+      <CloseIcon ml="20px" cursor="pointer" />
     </Flex>
   );
-};
+});
 
 export default TaskCard;
