@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Modal,
   ModalOverlay,
@@ -7,31 +8,78 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
+  Button,
+  Input,
 } from '@chakra-ui/react';
-
-import MainButton from "../button/MainButton"
-
-import AddTaskButton from '../button/AddTaskButton';
+import { SmallAddIcon } from '@chakra-ui/icons';
 
 const AddTaskModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  const CircleButtonStyle = {
+    background: '#319795',
+    cursor: 'pointer',
+    color: 'white',
+    borderRadius: '50%',
+    width: '60px',
+    height: '60px',
+    position: 'fixed',
+    right: '60px',
+    bottom: '60px',
+  };
+
+  const [todo, setTodo] = useState('');
+  const [incompleteTodo, setIncompleteTodo] = useState([]);
+
+  const onChangeTodo = (e) => setTodo(e.target.value);
+  const onClickAdd = () => {
+    if (todo === '') return;
+    const newTodo = [...incompleteTodo, todo];
+    setIncompleteTodo(newTodo);
+    setTodo('');
+    console.log(incompleteTodo);
+  };
+
+  const onClickDelete = () => {
+    setTodo('');
+  };
+
   return (
     <>
-      <AddTaskButton onClick={onOpen} />
+      <Button onClick={onOpen} style={CircleButtonStyle}>
+        <SmallAddIcon w={8} h={8} />
+      </Button>
+
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
+          <ModalHeader>新規タスクを作成</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            aaaaaa
+            <Input placeholder="+新しいタスクを入力" value={todo} onChange={onChangeTodo} />
           </ModalBody>
 
           <ModalFooter>
-            <MainButton colorScheme="blue" mr={3} onClick={onClose}>
-              Close
-            </MainButton>
+            <Button
+              bgColor="teal.500"
+              color="white"
+              borderRadius={10}
+              mr={3}
+              _hover={{ bgColor: 'teal.300' }}
+              onClick={onClickAdd}
+            >
+              追加
+            </Button>
+
+            <Button
+              bgColor="gray.400"
+              color="white"
+              borderRadius={10}
+              _hover={{ bgColor: 'gray.300' }}
+              onClick={onClickDelete}
+            >
+              キャンセル
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
