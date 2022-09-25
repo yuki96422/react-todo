@@ -1,4 +1,4 @@
-import { useState, memo, useCallback, useContext } from 'react';
+import { useState, useContext, useCallback, memo } from 'react';
 import {
   Modal,
   ModalOverlay,
@@ -14,21 +14,22 @@ import {
 import CircleButton from '../button/CircleButton';
 import AddTaskButton from '../button/AddTaskButton';
 import CancelTaskButton from '../button/CancelTaskButton';
+import { TaskListContext } from '../providers/TaskListProvider';
 
 const AddTaskModal = memo(() => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { incompleteTodo, setIncompleteTodo } = useContext(TaskListContext);
   const [todo, setTodo] = useState('');
-  const onChangeTodo = useCallback((e) => setTodo(e.target.value), [setTodo]);
+  const onChangeTodo = useCallback((e) => setTodo(e.target.value), []);
   const onClickAdd = useCallback(() => {
     if (todo === '') return;
     const newTodo = [...incompleteTodo, todo];
     setIncompleteTodo(newTodo);
     setTodo('');
-    console.log(incompleteTodo);
-  }, [setIncompleteTodo, setTodo]);
+    console.log('incompleteTodoを追加');
+  }, []);
 
-  const onClickDelete = useCallback(() => setTodo(''), [setTodo]);
+  const onClickDelete = useCallback(() => setTodo(''), []);
 
   return (
     <>

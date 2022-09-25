@@ -1,7 +1,7 @@
 import {useState,createContext,useMemo} from "react"
 
-const TaskListContext = createContext({});
-const TaskListProvider = (props) => {
+export const TaskListContext = createContext({});
+export const TaskListProvider = (props) => {
   const {children} = props;
   const [incompleteTodo, setIncompleteTodo] = useState(["aa"]);
   const TaskListProviderValue = useMemo(()=>({incompleteTodo, setIncompleteTodo}),[incompleteTodo])
@@ -12,5 +12,3 @@ const TaskListProvider = (props) => {
     </TaskListContext.Provider>
   )
 }
-
-export default TaskListProvider;

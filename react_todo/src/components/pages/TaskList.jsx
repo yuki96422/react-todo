@@ -1,14 +1,14 @@
-import {Heading, VStack, Box} from '@chakra-ui/react';
+import {Heading, VStack, Box } from '@chakra-ui/react';
 import {Link} from "react-router-dom";
-import {memo} from "react";
+import {memo,useContext} from "react";
 
 import TaskCard from '../taskcard/Taskcard';
 import MainButton from "../button/MainButton";
 import AddTaskModal  from "../modal/AddTaskModal";
-
+import {TaskListContext}from "../providers/TaskListProvider"
 
 const TaskList = memo(() => {
-
+  const { incompleteTodo } = useContext(TaskListContext);
   return (
     <>
       <Box p={10}>
@@ -17,9 +17,7 @@ const TaskList = memo(() => {
       </Heading>
 
       <VStack spacing="30px" alignItems="start" p="20px" mt="30px">
-        <TaskCard />
-        <TaskCard />
-        <TaskCard />
+        { incompleteTodo.map((todo) => <TaskCard key={todo}>{todo} </TaskCard>)}
         <MainButton><Link to="/">戻る</Link></MainButton>
       </VStack>
     </Box>

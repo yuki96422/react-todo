@@ -5,7 +5,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import Header from './components/layout/Header';
 import Theme from './theme/Theme';
 import Router from './router/Router';
-import TaskListProvider from './components/providers/TaskListProvider';
+import {TaskListProvider} from './components/providers/TaskListProvider';
 
 function App() {
   return (
