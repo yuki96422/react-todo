@@ -4,7 +4,7 @@ import {memo} from "react";
 
 import TaskCard from '../taskcard/Taskcard';
 import MainButton from "../button/MainButton";
-import AddTaskModal from "../modal/AddTaskModal";
+import AddTaskModal  from "../modal/AddTaskModal";
 
 
 const TaskList = memo(() => {
