@@ -42,7 +42,7 @@ const AddTaskModal = memo(
   
             <ModalFooter>
               <AddTaskButton onClick={onClickAdd} />
-              <CancelTaskButton onClick={setTodo('')} />
+              <CancelTaskButton onClick={() => setTodo('')} />
             </ModalFooter>
           </ModalContent>
         </Modal>
