@@ -27,9 +27,9 @@ const AddTaskModal = memo(() => {
     setIncompleteTodo(newTodo);
     setTodo('');
     console.log('incompleteTodoを追加');
-  }, []);
+  }, [todo]);
 
-  const onClickDelete = useCallback(() => setTodo(''), []);
+  const onClickDelete = useCallback(() => setTodo(''),[todo]);
 
   return (
     <>

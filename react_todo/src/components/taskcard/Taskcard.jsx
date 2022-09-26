@@ -1,9 +1,12 @@
-import { memo } from 'react';
+import { memo} from 'react';
 import { Box, Button, Flex } from '@chakra-ui/react';
 import { CheckIcon, CloseIcon } from '@chakra-ui/icons';
 
+
+
 const TaskCard = memo((props) => {
-  const { children } = props;
+  const { children,onClickComplete,onClickDelete} = props;
+
   return (
     <Flex alignItems="center">
       <Box bg="white" w="800px" h="50px" p="10px" borderRadius="10px" lineHeight="30px" shadow="md">
@@ -12,7 +15,7 @@ const TaskCard = memo((props) => {
           _hover={{ color: 'none' }}
           _active={{ color: 'none' }}
           size="xs"
-          onClick={console.log('taskcardの完了button')}
+          onClick={onClickComplete}
         >
           <CheckIcon
             w="20px"
@@ -31,7 +34,7 @@ const TaskCard = memo((props) => {
           _hover={{ color: 'none' }}
           _active={{ color: 'none' }}
           size="xs"
-          onClick={console.log('taskcardの削除button')}>
+          onClick={onClickDelete}>
       <CloseIcon ml="20px" cursor="pointer" />
       </Button>
     </Flex>
