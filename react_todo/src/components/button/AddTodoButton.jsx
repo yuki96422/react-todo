@@ -1,18 +1,20 @@
 import {Button} from "@chakra-ui/react"
 
-const CancelTaskButton = (props) => {
+const AddTodoButton = (props) => {
   const{onClick} = props;
   return(
     <Button
-    bgColor="gray.400"
+    bgColor="teal.500"
     color="white"
     borderRadius={10}
-    _hover={{ bgColor: 'gray.300' }}
+    mr={3}
+    _hover={{ bgColor: 'teal.300' }}
     onClick={onClick}
   >
-    キャンセル
+    追加
   </Button>
   )
+
 }
 
-export default CancelTaskButton;
+export default AddTodoButton;

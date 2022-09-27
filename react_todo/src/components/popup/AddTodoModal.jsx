@@ -12,13 +12,13 @@ import {
 } from '@chakra-ui/react';
 
 import CircleButton from '../button/CircleButton';
-import AddTaskButton from '../button/AddTaskButton';
-import CancelTaskButton from '../button/CancelTaskButton';
-import { TaskListContext } from '../providers/TaskListProvider';
+import AddTodoButton from '../button/AddTodoButton';
+import CancelTodoButton from '../button/CancelTodoButton';
+import { InCompleteTodoContext } from '../providers/InCompleteTodoProvider';
 
-const AddTaskModal = memo(() => {
+const AddTodoModal = memo(() => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { incompleteTodo, setIncompleteTodo } = useContext(TaskListContext);
+  const { incompleteTodo, setIncompleteTodo } = useContext( InCompleteTodoContext);
   const [todo, setTodo] = useState('');
   const onChangeTodo = useCallback((e) => setTodo(e.target.value), []);
   const onClickAdd = useCallback(() => {
@@ -44,8 +44,8 @@ const AddTaskModal = memo(() => {
           </ModalBody>
 
           <ModalFooter>
-            <AddTaskButton onClick={onClickAdd} />
-            <CancelTaskButton onClick={onClickDelete} />
+            <AddTodoButton onClick={onClickAdd} />
+            <CancelTodoButton onClick={onClickDelete} />
           </ModalFooter>
         </ModalContent>
       </Modal>
@@ -53,4 +53,4 @@ const AddTaskModal = memo(() => {
   );
 });
 
-export default AddTaskModal;
+export default AddTodoModal;

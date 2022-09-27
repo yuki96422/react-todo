@@ -4,19 +4,19 @@ import { ChakraProvider } from '@chakra-ui/react';
 import Header from './components/layout/Header';
 import Theme from './theme/Theme';
 import Router from './router/Router';
-import { TaskListProvider } from './components/providers/TaskListProvider';
-import { CountProvider } from './components/providers/CountProvider';
+import { InCompleteTodoProvider } from './components/providers/InCompleteTodoProvider';
+import { CompleteTodoProvider } from './components/providers/CompleteTodoProvider';
 
 function App() {
   return (
     <ChakraProvider theme={Theme}>
       <BrowserRouter>
         <Header>
-          <TaskListProvider>
-            <CountProvider>
+          <InCompleteTodoProvider>
+            <CompleteTodoProvider>
               <Router />
-            </CountProvider>
-          </TaskListProvider>
+            </CompleteTodoProvider>
+          </InCompleteTodoProvider>
         </Header>
       </BrowserRouter>
     </ChakraProvider>

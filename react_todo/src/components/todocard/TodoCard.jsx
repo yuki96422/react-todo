@@ -1,22 +1,14 @@
-import { memo} from 'react';
+import { memo } from 'react';
 import { Box, Button, Flex } from '@chakra-ui/react';
 import { CheckIcon, CloseIcon } from '@chakra-ui/icons';
 
-
-
-const TaskCard = memo((props) => {
-  const { children,onClickComplete,onClickDelete} = props;
+const TodoCard = memo((props) => {
+  const { children, onClickComplete ,onClickDelete} = props;
 
   return (
     <Flex alignItems="center">
       <Box bg="white" w="800px" h="50px" p="10px" borderRadius="10px" lineHeight="30px" shadow="md">
-        <Button
-          bg="none"
-          _hover={{ color: 'none' }}
-          _active={{ color: 'none' }}
-          size="xs"
-          onClick={onClickComplete}
-        >
+        <Button bg="none" _hover={{ color: 'none' }} _active={{ color: 'none' }} size="xs" onClick={onClickComplete}>
           <CheckIcon
             w="20px"
             h="20px"
@@ -30,15 +22,11 @@ const TaskCard = memo((props) => {
         </Button>
         {children}
       </Box>
-      <Button bg="none"
-          _hover={{ color: 'none' }}
-          _active={{ color: 'none' }}
-          size="xs"
-          onClick={onClickDelete}>
-      <CloseIcon ml="20px" cursor="pointer" />
+      <Button bg="none" _hover={{ color: 'none' }} _active={{ color: 'none' }} size="xs"  onClick={onClickDelete}>
+        <CloseIcon ml="20px" cursor="pointer" />
       </Button>
     </Flex>
   );
 });
 
-export default TaskCard;
+export default TodoCard;
