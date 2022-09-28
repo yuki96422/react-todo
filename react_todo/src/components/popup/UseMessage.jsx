@@ -15,7 +15,7 @@ const UseMessage = () => {
     },
     [toast]
   );
-  return showMessage;
+  return {showMessage};
 };
 
 export default UseMessage;

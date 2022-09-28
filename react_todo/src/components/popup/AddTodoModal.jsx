@@ -14,22 +14,26 @@ import {
 import CircleButton from '../button/CircleButton';
 import AddTodoButton from '../button/AddTodoButton';
 import CancelTodoButton from '../button/CancelTodoButton';
+import UseMessage from './UseMessage';
 import { InCompleteTodoContext } from '../providers/InCompleteTodoProvider';
 
 const AddTodoModal = memo(() => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { incompleteTodo, setIncompleteTodo } = useContext( InCompleteTodoContext);
+  const { incompleteTodo, setIncompleteTodo } = useContext(InCompleteTodoContext);
+  const { showMessage } = UseMessage();
   const [todo, setTodo] = useState('');
   const onChangeTodo = useCallback((e) => setTodo(e.target.value), []);
   const onClickAdd = useCallback(() => {
-    if (todo === '') return;
-    const newTodo = [...incompleteTodo, todo];
-    setIncompleteTodo(newTodo);
-    setTodo('');
-    console.log('incompleteTodoを追加');
+    if (todo) {
+      const newTodo = [...incompleteTodo, todo];
+      setIncompleteTodo(newTodo);
+      setTodo('');
+    } else {
+      showMessage({ status: 'error', title: 'タスクが入力されていません' });
+    }
   }, [todo]);
 
-  const onClickDelete = useCallback(() => setTodo(''),[todo]);
+  const onClickDelete = useCallback(() => setTodo(''), [todo]);
 
   return (
     <>

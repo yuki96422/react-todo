@@ -8,9 +8,11 @@ import AddTodoModal from '../popup/AddTodoModal';
 import { InCompleteTodoContext } from '../providers/InCompleteTodoProvider';
 import { CompleteTodoContext } from '../providers/CompleteTodoProvider';
 
+
 const TodoList = memo(() => {
   const { incompleteTodo, setIncompleteTodo } = useContext(InCompleteTodoContext);
   const { completeTodo, countCompleteTodo } = useContext(CompleteTodoContext);
+ 
  
 
   const onClickComplete = (index) => {
@@ -26,10 +28,11 @@ const TodoList = memo(() => {
     setIncompleteTodo(newTodo);
   };
 
+
   return (
     <>
       <Box p={10}>
-        <Heading as="h1" color="gray.600" fontSize="32px">
+        <Heading as="h1"  fontSize="32px">
           Task List
         </Heading>
 
