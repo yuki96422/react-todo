@@ -9,7 +9,7 @@ const TodoCard = memo((props) => {
     <Flex alignItems="center">
       <Box
         bg="white"
-        w={{ base: '350px', md: '700px' }}
+        w={{ base: '250px', md: '700px' }}
         h="50px"
         p="10px"
         borderRadius="10px"
