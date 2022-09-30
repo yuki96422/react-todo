@@ -5,9 +5,9 @@ export const InCompleteTodoContext = createContext({});
 export const InCompleteTodoProvider = (props) => {
   const { children } = props;
   const [incompleteTodo, setIncompleteTodo] = useState([]);
-  const InCompleteTodoProviderValue = useMemo(() => ({ incompleteTodo, setIncompleteTodo }), [incompleteTodo]);
+  const inCompleteTodoProviderValue = useMemo(() => ({ incompleteTodo, setIncompleteTodo }), [incompleteTodo]);
 
   return (
-    <InCompleteTodoContext.Provider value={InCompleteTodoProviderValue}>{children}</InCompleteTodoContext.Provider>
+    <InCompleteTodoContext.Provider value={inCompleteTodoProviderValue}>{children}</InCompleteTodoContext.Provider>
   );
 };

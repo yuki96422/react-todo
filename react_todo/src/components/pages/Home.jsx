@@ -18,7 +18,7 @@ const Home = memo(() => {
         <ListItem>進捗 : {Number.isNaN(taskProgress) ? 0 : Math.floor(taskProgress)}%</ListItem>
 
         <Link to="/list">
-          <MainButton>タスク一覧を見る</MainButton>
+          <MainButton bgColor="teal.500">タスク一覧を見る</MainButton>
         </Link>
       </UnorderedList>
     </Center>

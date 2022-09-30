@@ -49,7 +49,7 @@ const TodoList = memo(() => {
           )}
 
           <Link to="/">
-            <MainButton>戻る</MainButton>
+            <MainButton bgColor="teal.500">戻る</MainButton>
           </Link>
         </VStack>
       </Box>

@@ -1,5 +1,4 @@
 import { Button } from '@chakra-ui/react';
-import { SmallAddIcon } from '@chakra-ui/icons';
 
 const CircleButtonStyle = {
   background: '#319795',
@@ -14,10 +13,10 @@ const CircleButtonStyle = {
 };
 
 const CircleButton = (props) => {
-  const {onClick} = props;
+  const { onClick ,children} = props;
   return (
-    <Button onClick={onClick} style={CircleButtonStyle}>
-      <SmallAddIcon w={8} h={8} />
+    <Button onClick={onClick} style={CircleButtonStyle} _hover={{ opacity: 0.6 }}>
+      {children}
     </Button>
   );
 };

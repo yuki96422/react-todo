@@ -10,11 +10,11 @@ import {
   useDisclosure,
   Input,
 } from '@chakra-ui/react';
+import { AddIcon } from '@chakra-ui/icons';
 
 import CircleButton from '../button/CircleButton';
-import AddTodoButton from '../button/AddTodoButton';
-import CancelTodoButton from '../button/CancelTodoButton';
 import UseMessage from './UseMessage';
+import MainButton from '../button/MainButton';
 import { InCompleteTodoContext } from '../providers/InCompleteTodoProvider';
 
 const AddTodoModal = memo(() => {
@@ -37,7 +37,9 @@ const AddTodoModal = memo(() => {
 
   return (
     <>
-      <CircleButton onClick={onOpen} />
+      <CircleButton onClick={onOpen}>
+        <AddIcon />
+      </CircleButton>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
@@ -48,8 +50,12 @@ const AddTodoModal = memo(() => {
           </ModalBody>
 
           <ModalFooter>
-            <AddTodoButton onClick={onClickAdd} />
-            <CancelTodoButton onClick={onClickDelete} />
+            <MainButton bgColor="teal.500" onClick={onClickAdd}>
+              追加
+            </MainButton>
+            <MainButton bgColor="gray.500" onClick={onClickDelete}>
+              修正
+            </MainButton>
           </ModalFooter>
         </ModalContent>
       </Modal>
