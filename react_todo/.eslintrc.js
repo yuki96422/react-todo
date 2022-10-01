@@ -18,6 +18,7 @@ module.exports = {
     "react/function-component-definition": "off",
     "arrow-body-style": "off",
     "react/prop-types": "off",
-    "no-console": "off"
+    "no-console": "off",
+    "react/no-array-index-key": "off",
   },
 };

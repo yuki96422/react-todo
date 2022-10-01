@@ -35,7 +35,7 @@ const TodoList = memo(() => {
         <VStack spacing="30px" alignItems="start" p="20px" mt="30px">
           {incompleteTodo.map((todo, index) => (
             <TodoCard
-              key="index"
+              key={index}
               onClickComplete={() => onClickComplete(index)}
               onClickDelete={() => onClickDelete(index)}
             >
