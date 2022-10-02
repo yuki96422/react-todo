@@ -2,7 +2,6 @@ import { memo } from 'react';
 import { Heading, Text } from '@chakra-ui/react';
 
 const Page404 = memo(() => {
-
   console.log(test());
   return (
     <>

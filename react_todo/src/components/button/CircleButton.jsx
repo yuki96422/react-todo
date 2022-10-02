@@ -13,7 +13,7 @@ const CircleButtonStyle = {
 };
 
 const CircleButton = (props) => {
-  const { onClick ,children} = props;
+  const { onClick, children } = props;
   return (
     <Button onClick={onClick} style={CircleButtonStyle} _hover={{ opacity: 0.6 }}>
       {children}
