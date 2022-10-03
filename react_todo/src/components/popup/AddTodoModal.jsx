@@ -20,6 +20,7 @@ import { InCompleteTodoContext } from '../providers/InCompleteTodoProvider';
 const AddTodoModal = memo(() => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { incompleteTodo, setIncompleteTodo } = useContext(InCompleteTodoContext);
+ 
   const { showMessage } = UseMessage();
   const [todo, setTodo] = useState('');
   const onChangeTodo = useCallback((e) => setTodo(e.target.value), []);
@@ -46,7 +47,7 @@ const AddTodoModal = memo(() => {
           <ModalHeader>新規タスクを作成</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Input placeholder="+新しいタスクを入力" value={todo} onChange={onChangeTodo} />
+            <Input  placeholder="新規タスクを入力" value={todo} onChange={onChangeTodo} />
           </ModalBody>
 
           <ModalFooter>
