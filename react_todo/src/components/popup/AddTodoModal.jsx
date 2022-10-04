@@ -1,4 +1,4 @@
-import { useState, useContext, useCallback, memo ,useEffect} from 'react';
+import { useState, useContext, useCallback, memo, useEffect } from 'react';
 import {
   Modal,
   ModalOverlay,
@@ -52,7 +52,7 @@ const AddTodoModal = memo(() => {
           <ModalHeader>新規タスクを作成</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Input placeholder={`例:${initialTodo}`} value={todo} onChange={onChangeTodo} />
+            <Input placeholder={`例: ${initialTodo}`} value={todo} onChange={onChangeTodo} />
           </ModalBody>
 
           <ModalFooter>
