@@ -1,4 +1,4 @@
-import { useState, useContext, useCallback, memo } from 'react';
+import { useState, useContext, useCallback, memo ,useEffect} from 'react';
 import {
   Modal,
   ModalOverlay,
@@ -16,11 +16,16 @@ import CircleButton from '../button/CircleButton';
 import UseMessage from './UseMessage';
 import MainButton from '../button/MainButton';
 import { InCompleteTodoContext } from '../providers/InCompleteTodoProvider';
+import useInitialTodo from '../../hooks/useInitialTodo';
 
 const AddTodoModal = memo(() => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { incompleteTodo, setIncompleteTodo } = useContext(InCompleteTodoContext);
- 
+  const { getTodo, initialTodo } = useInitialTodo();
+  useEffect(() => {
+    getTodo();
+  }, [initialTodo]);
+
   const { showMessage } = UseMessage();
   const [todo, setTodo] = useState('');
   const onChangeTodo = useCallback((e) => setTodo(e.target.value), []);
@@ -47,7 +52,7 @@ const AddTodoModal = memo(() => {
           <ModalHeader>新規タスクを作成</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Input  placeholder="新規タスクを入力" value={todo} onChange={onChangeTodo} />
+            <Input placeholder={`例:${initialTodo}`} value={todo} onChange={onChangeTodo} />
           </ModalBody>
 
           <ModalFooter>

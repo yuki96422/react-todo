@@ -19,6 +19,7 @@ module.exports = {
     "arrow-body-style": "off",
     "react/prop-types": "off",
     "no-console": "off",
+    "no-alert": "off",
     "react/no-array-index-key": "off",
   },
 };
