@@ -1,15 +1,12 @@
-import { useState, createContext, useMemo, useEffect } from 'react';
-import useInitialTodo from '../../hooks/useInitialTodo';
+import { useState, createContext, useMemo } from 'react';
+import useInitialTodo from "../../hooks/useInitialTodo"
 
 export const InCompleteTodoContext = createContext({});
 
 export const InCompleteTodoProvider = (props) => {
   const { children } = props;
-  const { initialTodo, getInitialTodo } = useInitialTodo();
-  useEffect(() => {
-    getInitialTodo()}, []);
-  
-  const [incompleteTodo, setIncompleteTodo] = useState([initialTodo.title]);
+  const [initialTodo] = useInitialTodo();
+  const [incompleteTodo, setIncompleteTodo] = useState([initialTodo]);
   const inCompleteTodoProviderValue = useMemo(() => ({ incompleteTodo, setIncompleteTodo }), [incompleteTodo]);
 
   return (

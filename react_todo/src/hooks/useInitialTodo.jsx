@@ -1,17 +1,22 @@
-import { useCallback, useState } from "react";
-import axios from "axios";
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 
 const useInitialTodo = () => {
-  const [initialTodo, setInitialTodo] = useState([]);
-  
-  const getInitialTodo = useCallback(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/todos/1")
-      .then((res) => setInitialTodo(res.data))
-      .catch(() => console.log("error"));
-  }, []);
+  const [initialTodo, setInitialTodo] = useState();
+  useEffect(
+    () => async () => {
+      try {
+        const result = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
+        const todoTitle = result.data.title;
+        setInitialTodo(todoTitle);
+      } catch (err) {
+        console.log('error');
+      }
+    },
+    []
+  );
 
-  return { initialTodo, getInitialTodo };
+  return [initialTodo];
 };
 
 export default useInitialTodo;
