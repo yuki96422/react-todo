@@ -11,7 +11,7 @@ const useInitialTodo = () => {
     } catch (err) {
       alert('error');
     }
-  }, []);
+  }, [setInitialTodo]);
 
   return { getTodo, initialTodo };
 };
