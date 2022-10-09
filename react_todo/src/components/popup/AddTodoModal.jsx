@@ -24,7 +24,7 @@ const AddTodoModal = memo(() => {
   const { getTodo, initialTodo } = useInitialTodo();
   useEffect(() => {
     getTodo();
-  }, [initialTodo]);
+  }, []);
 
   const { showMessage } = UseMessage();
   const [todo, setTodo] = useState('');
